@@ -499,37 +499,90 @@ ul {
 }
 
 /* Skills Section */
-.skills-grid {
+.skills-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
 }
 
-.skill-card {
+.skill-group {
     background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 15px;
     border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
     transition: var(--transition);
-    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
+.skill-group::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 16px 0 0 16px;
+}
+
+.skill-group:hover {
+    transform: translateY(-4px);
+    border-color: rgba(204,112,75,0.5);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.skill-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.skill-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skill-group-header i {
+    font-size: 1.4rem;
     color: var(--accent-color);
+    width: 36px;
+    height: 36px;
+    background: rgba(204,112,75,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.skill-card h4 {
-    font-size: 1.2rem;
+.skill-group-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
 }
 
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skill-tags span {
+    font-size: 0.85rem;
+    background: rgba(245,245,220,0.06);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.skill-tags span:hover {
+    background: rgba(204,112,75,0.15);
+    color: var(--text-primary);
+    border-color: rgba(204,112,75,0.4);
+}
 /* Project Visuals (Icon Fallback) */
 .project-visual {
     width: 100%;
