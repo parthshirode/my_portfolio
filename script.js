@@ -19,6 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Close Menu on Outside Tap (mobile)
+    document.addEventListener('click', (e) => {
+        if (navList.classList.contains('active') &&
+            !navList.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navList.classList.remove('active');
+        }
+    });
+
     // Header Background on Scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
